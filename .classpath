@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="externalLibs/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="externalLibs/classmate-1.3.0.jar"/>
+	<classpathentry kind="lib" path="externalLibs/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="externalLibs/hibernate-commons-annotations-5.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="externalLibs/hibernate-core-5.2.10.Final.jar"/>
+	<classpathentry kind="lib" path="externalLibs/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="externalLibs/jandex-2.0.3.Final.jar"/>
+	<classpathentry kind="lib" path="externalLibs/javassist-3.20.0-GA.jar"/>
+	<classpathentry kind="lib" path="externalLibs/jboss-logging-3.3.0.Final.jar"/>
+	<classpathentry kind="lib" path="externalLibs/jboss-transaction-api_1.2_spec-1.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="externalLibs/mysql-connector-java-5.1.42.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-aop-4.3.9.RELEASE-javadoc.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-aop-4.3.9.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-aop-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-aspects-4.3.9.RELEASE-javadoc.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-aspects-4.3.9.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-aspects-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-beans-4.3.9.RELEASE-javadoc.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-beans-4.3.9.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-beans-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-context-4.3.9.RELEASE-javadoc.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-context-4.3.9.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-context-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-context-support-4.3.9.RELEASE-javadoc.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-context-support-4.3.9.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-context-support-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-core-4.3.9.RELEASE-javadoc.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-core-4.3.9.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-core-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-expression-4.3.9.RELEASE-javadoc.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-expression-4.3.9.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-expression-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-instrument-4.3.9.RELEASE-javadoc.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-instrument-4.3.9.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-instrument-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-instrument-tomcat-4.3.9.RELEASE-javadoc.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-instrument-tomcat-4.3.9.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-instrument-tomcat-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-jdbc-4.3.9.RELEASE-javadoc.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-jdbc-4.3.9.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-jdbc-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-jms-4.3.9.RELEASE-javadoc.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-jms-4.3.9.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-jms-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-messaging-4.3.9.RELEASE-javadoc.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-messaging-4.3.9.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-messaging-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-orm-4.3.9.RELEASE-javadoc.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-orm-4.3.9.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-orm-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-oxm-4.3.9.RELEASE-javadoc.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-oxm-4.3.9.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-oxm-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-test-4.3.9.RELEASE-javadoc.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-test-4.3.9.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-test-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-tx-4.3.9.RELEASE-javadoc.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-tx-4.3.9.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-tx-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-web-4.3.9.RELEASE-javadoc.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-web-4.3.9.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-web-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-webmvc-4.3.9.RELEASE-javadoc.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-webmvc-4.3.9.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-webmvc-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-webmvc-portlet-4.3.9.RELEASE-javadoc.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-webmvc-portlet-4.3.9.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-webmvc-portlet-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-websocket-4.3.9.RELEASE-javadoc.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-websocket-4.3.9.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="externalLibs/spring-websocket-4.3.9.RELEASE.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
