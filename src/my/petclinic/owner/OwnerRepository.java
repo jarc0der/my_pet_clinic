@@ -12,14 +12,8 @@ import my.petclinic.utils.HibernateUtils;
 
 public class OwnerRepository {
 	
-	public static void main(String[] args) {
-		Owner owner = new OwnerRepository().getOwnerById(13);
-		owner.setFirstName("Harakl");
-	}
-	
 	private SessionFactory sessionFactory = HibernateUtils.getSesionFactory();
 
-	@Transactional
 	public List<Owner> getOwnersByName(String ownersName){
 		
 		Session session = sessionFactory.openSession();
@@ -36,7 +30,6 @@ public class OwnerRepository {
 		return results;
 	}
 	
-	@Transactional
 	public Owner getOwnerById(int ownerId){
 		
 		Session session = sessionFactory.getCurrentSession();
@@ -50,8 +43,7 @@ public class OwnerRepository {
 		
 		return persist;
 	}
-	
-	@Transactional
+
 	public void saveOwner(Owner owner){
 		Session session = sessionFactory.getCurrentSession();
 		
@@ -61,6 +53,16 @@ public class OwnerRepository {
 		
 		session.getTransaction().commit();
 		
+	}
+	
+	public void updateOwner(Owner owner){
+		Session session = sessionFactory.getCurrentSession();
+		
+		session.beginTransaction();
+		
+		session.update(owner);
+		
+		session.getTransaction().commit();
 	}
 	
 }

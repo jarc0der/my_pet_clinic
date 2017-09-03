@@ -31,7 +31,7 @@
 	
 	<div>
 		<a href="/owners/${findOwner.id}/edit">Edit owner</a>
-		<a href="">Add pet</a>
+		<a href="${findOwner.id }/pets/new">Add pet</a>
 	</div>
 	
 	<div>
@@ -44,7 +44,7 @@
 			<c:forEach var="pet" items="${findOwner.pets }">
 				<tr>
 					<td>${pet.name }</td>
-					<td>${pet.birthday }</td>
+					<td>${pet.birthDate }</td>
 				</tr>
 				<tr>
 					<td colspan="1">

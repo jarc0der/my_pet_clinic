@@ -21,6 +21,7 @@ import javax.persistence.TemporalType;
 
 import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import my.petclinic.model.NamedEntity;
 import my.petclinic.visit.Visit;
@@ -31,7 +32,8 @@ public class Pet extends NamedEntity{
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name="birth_date")
-	private Date birthday;
+	@DateTimeFormat(pattern = "yyyy/MM/dd")
+	private Date birthDate;
 	
 	@ManyToOne
 	@JoinColumn(name="owner_id")
@@ -44,12 +46,12 @@ public class Pet extends NamedEntity{
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="petId", fetch=FetchType.EAGER)
 	private Set<Visit> visits;
 
-	public Date getBirthday() {
-		return birthday;
+	public Date getBirthDate() {
+		return birthDate;
 	}
 
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
+	public void setBirthDate(Date birthday) {
+		this.birthDate = birthday;
 	}
 
 	public Owner getOwner() {

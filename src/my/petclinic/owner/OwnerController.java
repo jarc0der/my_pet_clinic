@@ -23,6 +23,7 @@ public class OwnerController {
 	
 	private OwnerRepository repository = new OwnerRepository();
 	
+	
 	/*
 	 * method set Owner object in the PageContext and render new_owner form
 	 */
@@ -79,7 +80,7 @@ public class OwnerController {
 			return "new_owner";
 		}else{
 			owner.setId(ownerId);
-			repository.saveOwner(owner);
+			repository.updateOwner(owner);
 			
 			System.out.println("Save owner in processEditor");
 			return "redirect:/owners/" + ownerId;
