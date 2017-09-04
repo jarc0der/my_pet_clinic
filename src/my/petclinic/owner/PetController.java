@@ -47,14 +47,8 @@ public class PetController {
 	}
     
     @RequestMapping(value = "/pets/new", method = RequestMethod.POST)
-    public String processAddForm(Owner owner, Pet pet, Model model, BindingResult results){
-    	if(results.hasErrors()){
-    		model.addAttribute("pet", pet);
-    		return CREATE_AND_UPDATE;
-    	}
+    public String processAddForm(@ModelAttribute("owner")Owner owner, @ModelAttribute("pet") Pet pet, Model model, BindingResult results){
     	
-    	owner.addPet(pet);
-    	this.pets.savePet(pet);
     	
     	return "redirect:/owners/{ownerId}";
     	

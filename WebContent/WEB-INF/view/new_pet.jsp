@@ -12,18 +12,7 @@
 	<h2>Update and add pets</h2>
 	${owner.lastName }
 	
-	<form:form modelAttribute="pet" method="POST">
-		Name: <form:input path="name"/>
-		<br>
-		Birthday: <form:input path="birthDate"/>
-		<br>
-		Type: 
-		
-		 	<form:select path="petType" items="${types }" itemValue="id">
-				 <c:forEach var="element" items="${types}">
-					<form:option value="${element.name}"/>
-				</c:forEach> 
-			</form:select> 
+	<form:form method="POST">
 		
 		<input type="submit" value="Submit">
 	</form:form>

@@ -9,4 +9,13 @@ import my.petclinic.model.NamedEntity;
 @Table(name="types")
 public class PetType extends NamedEntity{
 
+	@Override
+	public int hashCode() {
+	    return super.getId();
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+	    return (this == obj);
+	}
 }
