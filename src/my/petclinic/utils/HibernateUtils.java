@@ -1,13 +1,12 @@
 package my.petclinic.utils;
 
-
-
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import my.petclinic.owner.Owner;
 import my.petclinic.owner.Pet;
 import my.petclinic.owner.PetType;
+import my.petclinic.owner.PetTypeFormatter;
 import my.petclinic.visit.Visit;
 
 public class HibernateUtils {

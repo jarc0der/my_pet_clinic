@@ -48,7 +48,8 @@ public class PetController {
     
     @RequestMapping(value = "/pets/new", method = RequestMethod.POST)
     public String processAddForm(@ModelAttribute("owner")Owner owner, @ModelAttribute("pet") Pet pet, Model model, BindingResult results){
-    	
+    	int i = 10;
+    	System.out.println(i);
     	
     	return "redirect:/owners/{ownerId}";
     	
