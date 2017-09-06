@@ -10,18 +10,19 @@
 </head>
 <body>
 	<h2>Update and add pets</h2>
-	${owner.lastName }
+	${owner.id }
 	
 	<form:form modelAttribute="pet" method="POST">
+		<form:hidden path="id" />
  		Name: <form:input path="name"/>
  		<br>
  		Birthday: <form:input path="birthDate"/>
  		<br>
  		Type: 
  		
- 		 	<form:select path="petType">
- 				 <form:options items="${types}" itemLabel="name" itemValue="id"/>
- 			</form:select> 
+	 	<form:select path="petType">
+			 <form:options items="${types}" itemLabel="name" itemValue="name"/>
+		</form:select> 
  		
  		<input type="submit" value="Submit">
  	</form:form>

@@ -54,8 +54,8 @@
 					</td>
 				</tr>
 				<tr>
-					<td><a href="">Edit pet</a></td>
-					<td><a href="">Add visit</a></td>
+					<td><a href="${findOwner.id }/pets/${pet.id}/edit">Edit pet</a></td>
+					<td><a href="${findOwner.id }/pets/${pet.id}/visits/new">Add visit</a></td>
 				</tr>
 			</c:forEach>
 		</table>

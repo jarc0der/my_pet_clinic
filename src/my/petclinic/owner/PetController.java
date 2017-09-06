@@ -1,10 +1,16 @@
 package my.petclinic.owner;
 
+import java.text.ParseException;
+import java.util.Collection;
 import java.util.List;
+import java.util.Locale;
 
+import org.springframework.format.Formatter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +31,31 @@ public class PetController {
 //		this.pets = pets;
 //	}
 	
+    
+	
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		binder.addCustomFormatter(new Formatter<PetType>() {
+
+			@Override
+		    public String print(PetType petType, Locale locale) {
+		        return petType.getName();
+		    }
+
+		    @Override
+		    public PetType parse(String text, Locale locale) throws ParseException {
+		        Collection<PetType> findPetTypes = pets.getAllTypes();
+		        for (PetType type : findPetTypes) {
+		            if (type.getName().equals(text)) {
+		                return type;
+		            }
+		        }
+		        throw new ParseException("type not found: " + text, 0);
+		    }
+
+		});
+	}
+	
 	@ModelAttribute("owner")
 	public Owner getOwner(@PathVariable(name="ownerId") int ownerId){
 		return this.owners.getOwnerById(ownerId);
@@ -35,11 +66,15 @@ public class PetController {
 		return this.pets.getAllTypes();
 	}
 	
+	@InitBinder("owner")
+    public void initOwnerBinder(WebDataBinder dataBinder) {
+        dataBinder.setDisallowedFields("id");
+    }
 	
     @RequestMapping(value = "/pets/new", method = RequestMethod.GET)
 	public String showAddForm(Owner owner, Model model){
 		Pet pet = new Pet();
-    	
+    
     	owner.addPet(pet);
 		model.addAttribute("pet", pet);
 		
@@ -47,12 +82,56 @@ public class PetController {
 	}
     
     @RequestMapping(value = "/pets/new", method = RequestMethod.POST)
-    public String processAddForm(@ModelAttribute("owner")Owner owner, @ModelAttribute("pet") Pet pet, Model model, BindingResult results){
-    	int i = 10;
-    	System.out.println(i);
+    public String processAddForm(Owner owner, Pet pet, Model model, BindingResult results){
+    	
+    	if(results.hasErrors()) {
+    		model.addAttribute(pet);
+    		return CREATE_AND_UPDATE;
+    	}
+    	
+    	owner.addPet(pet);
+    	this.pets.savePet(pet);
     	
     	return "redirect:/owners/{ownerId}";
-    	
-    		
     }
+    
+    @RequestMapping(value = "/pets/{petId}/edit", method = RequestMethod.GET)
+    public String showEditForm(@PathVariable("petId") int petId, Model model) {
+    	Pet currentPet = pets.getPetById(petId);
+    	System.out.println(currentPet + " id: " + currentPet.getId());
+    	
+    	model.addAttribute("pet", currentPet);
+    	
+    	return CREATE_AND_UPDATE;
+    }
+    
+    @RequestMapping(value = "/pets/{petId}/edit", method = RequestMethod.POST)
+    public String processEditForm(Pet pet, Owner owner, Model model, BindingResult results) {
+    	
+    	if(results.hasErrors()) {
+    		pet.setOwner(owner);
+    		model.addAttribute("pet", pet);
+    		return CREATE_AND_UPDATE;
+    	}
+//    	pet.setId(petId);
+    	owner.addPet(pet);
+
+    	this.pets.savePet(pet);
+    	
+    	return "redirect:/owners/{ownerId}";
+    }
+    
+    
+    /*
+     * @PathVariable("petId") int petId, 
+     * 
+     */
+    
+    
+    
+    
+    
+    
+    
+    
 }

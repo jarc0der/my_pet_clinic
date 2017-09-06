@@ -30,9 +30,22 @@ public class PetRepository {
 		
 		session.beginTransaction();
 		
-		session.save(pet);
+		session.saveOrUpdate(pet);
 		
 		session.getTransaction().commit();
+	}
+	
+	@Transactional
+	public Pet getPetById(int petId) {
+		Session session = sFactory.getCurrentSession();
+		
+		session.beginTransaction();
+		
+		Pet petFromDB = session.get(Pet.class, petId);
+		
+		session.getTransaction().commit();
+		
+		return petFromDB;
 	}
 	
 }

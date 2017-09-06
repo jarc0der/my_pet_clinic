@@ -20,7 +20,7 @@ public class Visit extends BaseEntity{
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="visit_date")
-	@DateTimeFormat(pattern="yyyy/MM/dd")
+	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private Date visitDate;
 	
 	@Column(name="description")
