@@ -6,6 +6,8 @@ import org.hibernate.cfg.Configuration;
 import my.petclinic.owner.Owner;
 import my.petclinic.owner.Pet;
 import my.petclinic.owner.PetType;
+import my.petclinic.vet.Specialty;
+import my.petclinic.vet.Vet;
 import my.petclinic.visit.Visit;
 
 public class HibernateUtils {
@@ -18,6 +20,8 @@ public class HibernateUtils {
 				.addAnnotatedClass(Pet.class)
 				.addAnnotatedClass(PetType.class)
 				.addAnnotatedClass(Visit.class)
+				.addAnnotatedClass(Vet.class)
+				.addAnnotatedClass(Specialty.class)
 				
 				.buildSessionFactory();
 	}
