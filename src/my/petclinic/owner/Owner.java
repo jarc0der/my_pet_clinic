@@ -11,6 +11,10 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 import my.petclinic.model.Person;
 
@@ -19,12 +23,15 @@ import my.petclinic.model.Person;
 public class Owner extends Person{
 
 	@Column(name="address")
+	@NotNull(message = "can't not be empty")
+	@NotEmpty(message = "can't not be empty")
 	private String address;
 	
 	@Column(name="city")
 	private String city;
 	
 	@Column(name="telephone")
+	@Digits(fraction = 2, integer = 10, message="should have exactly 10 numbers")
 	private String telephone;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "owner", fetch=FetchType.EAGER)

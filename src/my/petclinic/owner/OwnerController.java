@@ -1,9 +1,8 @@
 package my.petclinic.owner;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
+
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,9 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class OwnerController {
 
-	//for testing
-	private static List<Owner> ownersList = loadOwners();
-	
 	private OwnerRepository repository = new OwnerRepository();
 	
 	
@@ -37,10 +33,10 @@ public class OwnerController {
 	 * This method process form data of creation new owner
 	 */
 	@RequestMapping(value="/owners/new", method=RequestMethod.POST)
-	public String processCreationForm(@ModelAttribute("owner") Owner owner, BindingResult binding){
+	public String processCreationForm(@ModelAttribute("owner") @Valid Owner owner, BindingResult binding){
 		
 		if(binding.hasErrors()){
-			return "new_onwer";
+			return "new_owner";
 		}
 		
 		System.out.println("Save onwer in /new");
@@ -72,7 +68,7 @@ public class OwnerController {
 	
 	@RequestMapping(value="/owners/{owner_id}/edit", method=RequestMethod.POST)
 	public String processEditForm(@PathVariable("owner_id") int ownerId,
-			@ModelAttribute("owner") Owner owner, BindingResult results){
+			@ModelAttribute("owner") @Valid Owner owner, BindingResult results){
 		
 		if(results.hasErrors()){
 			return "new_owner";
@@ -94,7 +90,7 @@ public class OwnerController {
 	}
 	
 	@RequestMapping(value="/owners", method=RequestMethod.POST)
-	public String processFindOwners(Owner owner, Model model, BindingResult result){
+	public String processFindOwners(Owner owner, BindingResult result, Model model){
 		System.out.println(owner.getLastName());
 		List<Owner> resultList = repository.getOwnersByName(owner.getLastName());
 		
@@ -114,43 +110,5 @@ public class OwnerController {
 			return "list_owners";
 		}
 				
-	}
-	
-	private static List<Owner> loadOwners(){
-		Owner o1 = new Owner();
-		o1.setFirstName("Jack");
-		o1.setId(1);
-		Owner o2 = new Owner();
-		o2.setFirstName("Michel");
-		o2.setId(2);
-		Owner o3 = new Owner();
-		o3.setFirstName("Kate");
-		o3.setId(3);
-		
-		Pet p1 = new Pet();
-		p1.setName("Tiffany");
-		Pet p2 = new Pet();
-		p2.setName("Roger");
-		
-		o3.setPetsInternal(new HashSet<Pet>(Arrays.asList(p1, p2)));
-		o3.setLastName("Sikora");
-		List<Owner> list = new ArrayList<>();
-		list.add(o1);
-		list.add(o2);
-		list.add(o3);
-		
-		return list;
-	}
-	
-	private static List<Owner> findOnwersByName(String name){
-		List<Owner> result = new ArrayList<>();
-		
-		for(Owner owner : ownersList){
-			if(owner.getFirstName().equals(name)){
-				result.add(owner);
-			}
-		}
-		
-		return result;
 	}
 }

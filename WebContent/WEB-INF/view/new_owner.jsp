@@ -12,14 +12,18 @@
 		<!--   TestID : <form:input path="id"/> -->
 		<br>
 		First name: <form:input path="firstName"/>
+		<form:errors path="firstName" />
+		
 		<br>
 		Last name: <form:input path="lastName"/>
 		<br>
 		Address: <form:input path="address"/>
+		<form:errors path="address" />
 		<br>
 		City: <form:input path="city"/>
 		<br>
 		Telephone: <form:input path="telephone"/>
+		<form:errors path="telephone" />
 		<br>
 		<input type="submit" value="Submit">
 	</form:form>

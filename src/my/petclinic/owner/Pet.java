@@ -18,6 +18,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
@@ -33,6 +34,7 @@ public class Pet extends NamedEntity{
 	@Temporal(TemporalType.DATE)
 	@Column(name="birth_date")
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
+	@NotNull
 	private Date birthDate;
 	
 	@ManyToOne

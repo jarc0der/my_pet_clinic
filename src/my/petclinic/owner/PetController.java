@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
 
+import javax.validation.Valid;
+
 import org.springframework.format.Formatter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,8 +33,6 @@ public class PetController {
 //		this.pets = pets;
 //	}
 	
-    
-	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		binder.addCustomFormatter(new Formatter<PetType>() {
@@ -52,9 +52,14 @@ public class PetController {
 		        }
 		        throw new ParseException("type not found: " + text, 0);
 		    }
-
 		});
 	}
+	
+//	@InitBinder("pet")
+//	public void initPetBinder(WebDataBinder binder) {
+//		binder.addValidators(new PetValidator());
+//	}
+	
 	
 	@ModelAttribute("owner")
 	public Owner getOwner(@PathVariable(name="ownerId") int ownerId){
@@ -82,7 +87,7 @@ public class PetController {
 	}
     
     @RequestMapping(value = "/pets/new", method = RequestMethod.POST)
-    public String processAddForm(Owner owner, Pet pet, Model model, BindingResult results){
+    public String processAddForm(@Valid Pet pet, BindingResult results, Owner owner, Model model){
     	
     	if(results.hasErrors()) {
     		model.addAttribute(pet);
@@ -106,7 +111,7 @@ public class PetController {
     }
     
     @RequestMapping(value = "/pets/{petId}/edit", method = RequestMethod.POST)
-    public String processEditForm(Pet pet, Owner owner, Model model, BindingResult results) {
+    public String processEditForm(Pet pet, Owner owner, BindingResult results, Model model) {
     	
     	if(results.hasErrors()) {
     		pet.setOwner(owner);

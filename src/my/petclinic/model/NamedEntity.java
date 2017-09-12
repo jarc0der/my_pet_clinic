@@ -2,6 +2,9 @@ package my.petclinic.model;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @MappedSuperclass
 public class NamedEntity extends BaseEntity{

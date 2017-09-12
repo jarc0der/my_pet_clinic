@@ -15,8 +15,10 @@
 	<form:form modelAttribute="pet" method="POST">
 		<form:hidden path="id" />
  		Name: <form:input path="name"/>
+ 		<form:errors path="name"/>
  		<br>
  		Birthday: <form:input path="birthDate"/>
+ 		<form:errors path="birthDate"/>
  		<br>
  		Type: 
  		
